@@ -1,0 +1,83 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Cambiado a Inter */
+  background-color: #E5E5E5;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-image img {
+  width: 450px; /* Ajusta el ancho de la imagen */
+  height: 638px; /* Ajusta la altura de la imagen */
+  display: block;
+  margin: 0; /* Elimina el margen */
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px; /* Ajusta el ancho del formulario para que coincida con la imagen */
+  height: 558px; /* Ajusta la altura del formulario para que coincida con la imagen */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Elimina el margen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.login-form h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 20px; /* Redondea los bordes */
+  margin-bottom: 20px; /* Espacio entre los inputs */
+  background-color: #f0f0f0; /* Fondo gris claro */
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #003d4b; /* Fondo azul oscuro */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-links {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center; /* Centra los enlaces horizontalmente */
+}
+
+.login-links a {
+  color: #3897f0;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
