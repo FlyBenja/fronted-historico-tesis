@@ -1,8 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Estilos/Login.css';
 import loginImage from '../Imagenes/login-image.png';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí puedes añadir la lógica de autenticación antes de redirigir
+    navigate('/Bienvenida');
+  };
+
   return (
     <div className="login-container">
       <div className="login-image">
@@ -10,7 +19,7 @@ const Login = () => {
       </div>
       <div className="login-form">
         <h1>Iniciar Sesión</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input type="text" placeholder="Usuario" />
           </div>

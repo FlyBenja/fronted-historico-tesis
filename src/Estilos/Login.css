@@ -90,9 +90,9 @@ body {
 }
 
 /* Media Queries para dispositivos móviles */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   body {
-    background-color: #022F40; /* Cambiar color de fondo en móviles */
+    background-color: #022F40 !important; /* Cambiar color de fondo en móviles */
   }
 
   .login-container {
@@ -107,7 +107,7 @@ body {
   }
 
   .login-form {
-    width: 90%; /* Ajuste para que el formulario se vea bien en móviles */
+    width: 85%; /* Ajuste para que el formulario se vea bien en móviles */
     max-width: 400px;
     height: auto;
     padding: 20px;

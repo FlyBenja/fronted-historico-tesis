@@ -1,0 +1,176 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Eliminar las barras de desplazamiento */
+}
+
+body {
+  background-color: #E5E5E5; /* Color de fondo por defecto */
+}
+
+.bienvenida-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #022F40;
+  padding: 10px 20px;
+  width: 100%; /* Asegurarse de que el banner llene todo el ancho */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.navbar-left {
+  flex: 1;
+}
+
+.navbar-left h1 {
+  color: white;
+  margin: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.navbar-item span {
+  color: white;
+  margin-right: 10px;
+}
+
+.navbar-item .form-select, .recordatorios-container .btn-success {
+  width: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.navbar-item .form-select:focus, .recordatorios-container .btn-success:focus {
+  border-color: #3897f0;
+  outline: none;
+}
+
+/* Personalizar la flecha del selector */
+.navbar-item .form-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Asegurarse de que la flecha esté visible */
+.navbar-item .form-select::-ms-expand {
+  display: none;
+}
+
+.bienvenida-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Asegurarse de que el contenido esté justo debajo del banner */
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  width: 100%; /* Llenar todo el ancho */
+  padding: 20px; /* Añadir padding para separación */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.bienvenida-content h2 {
+  margin: 0;
+  margin-top: 20px; /* Espacio superior para separarlo del banner */
+}
+
+.bienvenida-content p {
+  margin: 0;
+  color: gray;
+}
+
+.recordatorios-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Llenar todo el ancho */
+  padding: 0 20px; /* Añadir padding para separación */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.recordatorios-container h3 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  margin-right: 20px; /* Espacio entre el título y el botón */
+}
+
+.recordatorios-container .btn-success {
+  background-color: #28a745; /* Color verde para el botón */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.noti-image {
+  width: 30px; /* Ajustar el tamaño de la imagen según sea necesario */
+  height: auto;
+  cursor: pointer;
+}
+
+.custom-modal .modal-dialog {
+  position: fixed;
+  top: 70px; /* Ajustar según sea necesario */
+  right: 0; /* Pegarlo a la derecha totalmente */
+  transform: none; /* Asegurar que el modal no se centre */
+  width: 300px; /* Ajustar el ancho según sea necesario */
+  max-width: 100%; /* Asegurar que el modal no exceda el ancho de la pantalla */
+}
+
+.custom-modal .modal-header,
+.custom-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-modal .modal-header {
+  background-color: #022F40;
+  color: white;
+}
+
+.custom-modal .modal-body {
+  background-color: #fff;
+}
+
+.custom-modal .modal-title {
+  font-family: 'Inter', sans-serif;
+}
+
+.custom-modal .close {
+  color: white;
+}
