@@ -107,7 +107,7 @@ body {
   }
 
   .register-form {
-    width: 90%; /* Ajuste para que el formulario se vea bien en móviles */
+    width: 80%; /* Ajuste para que el formulario se vea bien en móviles */
     max-width: 400px;
     height: auto;
     padding: 20px;
