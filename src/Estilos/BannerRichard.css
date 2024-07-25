@@ -1,0 +1,86 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.custom-navbar {
+  background-color: #022F40;
+}
+
+.navbar-brand {
+  color: white !important; /* Asegúrate de que el color sea blanco */
+}
+
+.custom-toggler {
+  border-color: white !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.custom-nav-dropdown .dropdown-toggle {
+  color: white !important;
+}
+
+.noti-image {
+  width: 30px; /* Ajustar el tamaño de la imagen según sea necesario */
+  height: auto;
+  cursor: pointer;
+}
+
+.navbar-link {
+  color: white !important; /* Asegúrate de que el color sea blanco */
+}
+
+.custom-modal .modal-dialog {
+  position: fixed;
+  top: 100px; /* Ajustar según sea necesario */
+  right: 0; /* Pegarlo a la derecha totalmente */
+  transform: none; /* Asegurar que el modal no se centre */
+  width: 300px; /* Ajustar el ancho según sea necesario */
+  max-width: 100%; /* Asegurar que el modal no exceda el ancho de la pantalla */
+}
+
+.custom-modal .modal-header {
+  background-color: #022F40;
+  color: white;
+  padding: 10px 15px; /* Reducir el tamaño del header */
+}
+
+.custom-modal .modal-body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-modal .modal-title {
+  font-family: 'Inter', sans-serif;
+}
+
+.add-modal .modal-dialog {
+  width: 80%; /* Ancho del modal para que ocupe media pantalla */
+}
+
+.add-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-modal .modal-body .form-group {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .custom-modal .modal-dialog, 
+  .add-modal .modal-dialog {
+    position: static;
+    transform: translate(0, 0); /* Asegurar que el modal se centre en dispositivos móviles */
+    margin: 20px auto; /* Ajustar según sea necesario */
+  }
+}

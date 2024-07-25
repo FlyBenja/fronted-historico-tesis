@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Modal, Button } from 'react-bootstrap';
 import '../Estilos/Bienvenida.css';
-import notiImage from '../Imagenes/noti-image.png'; // Asegúrate de que la ruta de la imagen sea correcta
+import BannerRichard from '../Componentes/BannerRichard'; // Importa el componente BannerRichard
+import BannerAlumnos from '../Componentes/BannerAlumnos'; // Importa el componente BannerAlumnos
 
 const Bienvenida = () => {
-  const [showNotiModal, setShowNotiModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const nombre = "Benjamin";
   const role = 1; // Cambia este valor según sea necesario
@@ -14,70 +14,42 @@ const Bienvenida = () => {
     day: 'numeric'
   });
 
-  const handleNotiClose = () => setShowNotiModal(false);
-  const handleNotiShow = () => setShowNotiModal(!showNotiModal);
   const handleAddClose = () => setShowAddModal(false);
   const handleAddShow = () => setShowAddModal(true);
 
   return (
     <div className="bienvenida-container">
-      <div className="navbar">
-        <div className="navbar-left">
-          <h1>TesiManager</h1>
-        </div>
-        {role === 1 && (
-          <div className="navbar-right">
-            <div className="navbar-item">
-              <Form.Select aria-label="Área Alumnos" className="form-select">
-                <option>Área Alumnos</option>
-                <option value="1">PG1</option>
-                <option value="2">PG2</option>
-              </Form.Select>
-            </div>
-            <div className="navbar-item">
-              <Form.Select aria-label="Historial" className="form-select">
-                <option>Historial</option>
-                <option value="1">2025</option>
-              </Form.Select>
-            </div>
-          </div>
-        )}
-        <div className="navbar-item">
-          <img src={notiImage} alt="Notificaciones" className="noti-image" onClick={handleNotiShow} />
-        </div>
-        <div className="navbar-item">
-          <span>Foto User</span>
-        </div>
-      </div>
-      <div className="bienvenida-content" onClick={handleNotiClose}>
+      {role === 1 ? <BannerRichard /> : <BannerAlumnos />} {/* Condicional para renderizar BannerRichard o BannerAlumnos */}
+      <div className="bienvenida-content">
         <h2>Bienvenido, {nombre}</h2>
-        <p>Fresh — {fecha}</p>
+        <p>{fecha}</p>
         {role === 1 && (
           <div className="recordatorios-container">
             <h3>Recordatorios</h3>
-            <button className="btn-success" onClick={handleAddShow}>Agregar</button>
+            <button className="btn-agregar" onClick={handleAddShow}>Agregar</button>
           </div>
         )}
       </div>
-      <Modal show={showNotiModal} onHide={handleNotiClose} className="custom-modal">
-        <Modal.Header closeButton>
-          <Modal.Title>Notificaciones</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Aquí van las notificaciones.</p>
-        </Modal.Body>
-      </Modal>
 
-      <Modal show={showAddModal} onHide={handleAddClose} className="custom-modal">
+      <Modal show={showAddModal} onHide={handleAddClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Agregar Recordatorio</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Contenido para agregar un nuevo recordatorio.</p>
+          <Form>
+            <Form.Group controlId="formFechaRecordatorio">
+              <Form.Label>Fecha Recordatorio</Form.Label>
+              <Form.Control type="date" />
+            </Form.Group>
+            <Form.Group controlId="formDescripcionRecordatorio">
+              <Form.Label>Descripción Recordatorio</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Ingrese la descripción del recordatorio" />
+            </Form.Group>
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleAddClose}>Cerrar</Button>
-          <Button variant="primary">Guardar cambios</Button>
+          <Button variant="success">Guardar cambios</Button>
         </Modal.Footer>
       </Modal>
     </div>
