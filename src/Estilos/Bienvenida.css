@@ -47,15 +47,20 @@ body {
 
 .recordatorios-container {
   display: flex;
-  align-items: center;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  margin-top: 20px; /* Añadimos un margen superior para separar del botón */
   width: 100%; /* Llenar todo el ancho */
   padding: 0 20px; /* Añadir padding para separación */
   box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
-.recordatorios-container h3 {
-  margin: 0;
+.recordatorios-header {
+  display: flex;
+  align-items: center;
+}
+
+.recordatorios-header h3 {
   font-size: 18px; /* Tamaño de fuente más pequeño */
   font-family: 'Inter', sans-serif;
   margin-right: 20px; /* Espacio entre el título y el botón */
@@ -83,44 +88,44 @@ body {
   transform: translateY(0);
 }
 
-.custom-modal .modal-dialog {
-  position: fixed;
-  top: 100px; /* Ajustar según sea necesario */
-  right: 0; /* Pegarlo a la derecha totalmente */
-  transform: none; /* Asegurar que el modal no se centre */
-  width: 300px; /* Ajustar el ancho según sea necesario */
-  max-width: 100%; /* Asegurar que el modal no exceda el ancho de la pantalla */
+.recordatorios-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0 0; /* Añade un margen superior para separar la lista del botón */
 }
 
-.custom-modal .modal-header {
-  background-color: #022F40;
-  color: white;
-  padding: 10px 15px; /* Reducir el tamaño del header */
-}
-
-.custom-modal .modal-body {
-  background-color: #fff;
+.recordatorios-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
-.custom-modal .modal-title {
-  font-family: 'Inter', sans-serif;
-}
-
-.add-modal .modal-dialog {
-  width: 80%; /* Ancho del modal para que ocupe media pantalla */
-}
-
-.add-modal .modal-body {
+.recordatorio-info {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.add-modal .modal-body .form-group {
-  margin-bottom: 1rem;
+.recordatorio-info p {
+  margin: 0 10px;
+}
+
+.recordatorio-info button {
+  margin-left: 10px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Añadir un margen de 50px entre las tarjetas */
+  margin-top: 20px;
+}
+
+.card-img-top {
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Ajusta la imagen para que cubra la totalidad del contenedor sin distorsionarse */
 }
 
 @media (max-width: 768px) {

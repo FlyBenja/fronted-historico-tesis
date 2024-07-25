@@ -27,7 +27,7 @@ const BannerAlumnos = () => {
       </Navbar>
 
       <Modal show={showNotiModal} onHide={handleNotiClose} centered>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Notificaciones</Modal.Title>
         </Modal.Header>
         <Modal.Body>
