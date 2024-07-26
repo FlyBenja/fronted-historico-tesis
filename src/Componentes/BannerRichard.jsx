@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Modal } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate
 import '../Estilos/BannerRichard.css';
 import notiImage from '../Imagenes/noti-image.png'; // Asegúrate de que la ruta de la imagen sea correcta
 
 const BannerRichard = () => {
   const [showNotiModal, setShowNotiModal] = useState(false);
+  const navigate = useNavigate(); // Inicializa el hook useNavigate
 
   const handleNotiClose = () => setShowNotiModal(false);
   const handleNotiShow = () => setShowNotiModal(!showNotiModal);
+
+  // Funciones para manejar la navegación
+  const handleNavigatePG1 = () => {
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1 } });
+  };
+
+  const handleNavigatePG2 = () => {
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2 } });
+  };
 
   return (
     <>
@@ -19,8 +30,8 @@ const BannerRichard = () => {
             <Nav className="ms-auto">
                 <>
                   <NavDropdown title="Área Alumnos" id="basic-nav-dropdown" className="custom-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">PG1</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">PG2</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handleNavigatePG1}>PG1</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handleNavigatePG2}>PG2</NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Historial" id="basic-nav-dropdown" className="custom-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">2025</NavDropdown.Item>

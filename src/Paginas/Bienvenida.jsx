@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Modal, Button, Card } from 'react-bootstrap';
+import { Form, Modal, Button, Card, ProgressBar } from 'react-bootstrap';
 import '../Estilos/Bienvenida.css';
 import BannerRichard from '../Componentes/BannerRichard';
 import BannerAlumnos from '../Componentes/BannerAlumnos';
@@ -16,12 +16,15 @@ const Bienvenida = () => {
   const [error, setError] = useState('');
 
   const nombre = "Benjamin";
-  const role = 2;
+  const role = 1;
   const fechaActual = new Date().toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
+
+  const estadoPG1 = true; // Estado de ejemplo para PG1
+  const estadoPG2 = 0; // Estado de ejemplo para PG2
 
   const handleAddClose = () => {
     setShowAddModal(false);
@@ -67,7 +70,7 @@ const Bienvenida = () => {
     <div className="bienvenida-container">
       {role === 1 ? <BannerRichard /> : <BannerAlumnos />}
       <div className="bienvenida-content">
-        <h2>Bienvenid@, {nombre}</h2>
+        <h2>Bienvenid@, {role === 1 ? 'Ingeniero Richard' : nombre}</h2>
         <p>{fechaActual}</p>
         {role === 1 && (
           <div className="recordatorios-container">
@@ -91,26 +94,22 @@ const Bienvenida = () => {
         )}
         {role !== 1 && (
           <div className="card-container">
-            <Card style={{ width: '18rem' }}>
+            <Card className="bienvenida-card">
               <Card.Img variant="top" src={image1} className="card-img-top" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Title>PG1</Card.Title>
+                <ProgressBar now={60} />
+                <p className="estado">{estadoPG1 ? 'Activo' : 'Inactivo'}</p>
+                <Button variant="primary" className="mt-2">Go somewhere</Button>
               </Card.Body>
             </Card>
-            <Card style={{ width: '18rem' }}>
+            <Card className="bienvenida-card">
               <Card.Img variant="top" src={image2} className="card-img-top" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Title>PG2</Card.Title>
+                <ProgressBar now={30} />
+                <p className="estado">{estadoPG2 ? 'Activo' : 'Inactivo'}</p>
+                <Button variant="primary" className="mt-2">Go somewhere</Button>
               </Card.Body>
             </Card>
           </div>

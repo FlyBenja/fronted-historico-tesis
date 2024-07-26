@@ -1,0 +1,86 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Eliminar las barras de desplazamiento */
+}
+
+body {
+  background-color: #fff; /* Color de fondo blanco */
+  overflow-y: scroll; /* Habilitar barra de desplazamiento vertical */
+}
+
+.area-alumnos-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.area-alumnos-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.area-alumnos-content h2 {
+  margin: 20px 0 10px 0;
+}
+
+.area-alumnos-content p {
+  margin: 0 0 20px 0;
+  color: gray;
+}
+
+.card-container-alumnos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.alumno-card {
+  width: calc(20% - 20px); /* Ajuste para 5 tarjetas por fila */
+  min-width: 150px; /* Asegura un tamaño mínimo para tarjetas más pequeñas */
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .alumno-card {
+    width: calc(25% - 20px); /* Ajuste para 4 tarjetas por fila en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 992px) {
+  .alumno-card {
+    width: calc(33.33% - 20px); /* Ajuste para 3 tarjetas por fila en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .alumno-card {
+    width: calc(50% - 20px); /* Ajuste para 2 tarjetas por fila en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .alumno-card {
+    width: 80%; /* Ajuste para 1 tarjeta por fila en pantallas más pequeñas */
+  }
+}
+
+.card-img-top {
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Ajusta la imagen para que cubra la totalidad del contenedor sin distorsionarse */
+}
