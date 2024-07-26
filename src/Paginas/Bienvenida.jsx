@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Modal, Button, Card, ProgressBar } from 'react-bootstrap';
+import { Form, Modal, Button } from 'react-bootstrap'; // Asegúrate de importar estos componentes
 import '../Estilos/Bienvenida.css';
 import BannerRichard from '../Componentes/BannerRichard';
 import BannerAlumnos from '../Componentes/BannerAlumnos';
-
-import image1 from '../Imagenes/login-image.png';
-import image2 from '../Imagenes/noti-image.png';
+import AreaPG from '../Componentes/AreaPG'; // Importar el nuevo componente AreaPG
 
 const Bienvenida = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -22,9 +20,6 @@ const Bienvenida = () => {
     month: 'long',
     day: 'numeric'
   });
-
-  const estadoPG1 = true; // Estado de ejemplo para PG1
-  const estadoPG2 = 0; // Estado de ejemplo para PG2
 
   const handleAddClose = () => {
     setShowAddModal(false);
@@ -68,7 +63,7 @@ const Bienvenida = () => {
 
   return (
     <div className="bienvenida-container">
-      {role === 1 ? <BannerRichard /> : <BannerAlumnos />}
+      {role === 1 ? <BannerRichard role={role} /> : <BannerAlumnos />}
       <div className="bienvenida-content">
         <h2>Bienvenid@, {role === 1 ? 'Ingeniero Richard' : nombre}</h2>
         <p>{fechaActual}</p>
@@ -92,28 +87,7 @@ const Bienvenida = () => {
             </ul>
           </div>
         )}
-        {role !== 1 && (
-          <div className="card-container">
-            <Card className="bienvenida-card">
-              <Card.Img variant="top" src={image1} className="card-img-top" />
-              <Card.Body>
-                <Card.Title>PG1</Card.Title>
-                <ProgressBar now={60} />
-                <p className="estado">{estadoPG1 ? 'Activo' : 'Inactivo'}</p>
-                <Button variant="primary" className="mt-2">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-            <Card className="bienvenida-card">
-              <Card.Img variant="top" src={image2} className="card-img-top" />
-              <Card.Body>
-                <Card.Title>PG2</Card.Title>
-                <ProgressBar now={30} />
-                <p className="estado">{estadoPG2 ? 'Activo' : 'Inactivo'}</p>
-                <Button variant="primary" className="mt-2">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </div>
-        )}
+        {role !== 1 && <AreaPG role={role} />}
       </div>
 
       <Modal show={showAddModal} onHide={handleAddClose} centered>

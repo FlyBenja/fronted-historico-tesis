@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate
 import '../Estilos/BannerRichard.css';
 import notiImage from '../Imagenes/noti-image.png'; // Asegúrate de que la ruta de la imagen sea correcta
 
-const BannerRichard = () => {
+const BannerRichard = ({ role }) => {
   const [showNotiModal, setShowNotiModal] = useState(false);
   const navigate = useNavigate(); // Inicializa el hook useNavigate
 
@@ -20,6 +20,13 @@ const BannerRichard = () => {
     navigate('/AreaAlumnos', { state: { RoleAlumPG: 2 } });
   };
 
+  const handleNavigateHistorial = (year) => {
+    navigate('/AreaPGRic', { state: { year, role } });
+  };
+
+  // Lista de años para el historial
+  const years = [2025, 2024, 2023]; // Puedes agregar más años aquí
+
   return (
     <>
       <Navbar expand="lg" className="custom-navbar">
@@ -34,7 +41,11 @@ const BannerRichard = () => {
                     <NavDropdown.Item onClick={handleNavigatePG2}>PG2</NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Historial" id="basic-nav-dropdown" className="custom-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">2025</NavDropdown.Item>
+                    {years.map(year => (
+                      <NavDropdown.Item key={year} onClick={() => handleNavigateHistorial(year)}>
+                        {year}
+                      </NavDropdown.Item>
+                    ))}
                   </NavDropdown>
                 </>
               <Nav.Link href="#">

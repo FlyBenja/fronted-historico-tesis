@@ -1,0 +1,80 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Eliminar las barras de desplazamiento */
+}
+
+body {
+  background-color: #fff; /* Color de fondo blanco */
+}
+
+.area-pg-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.area-pg-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Asegurarse de que el contenido esté justo debajo del banner */
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  width: 100%; /* Llenar todo el ancho */
+  padding: 20px; /* Añadir padding para separación */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  background-color: #fff; /* Color de fondo blanco */
+}
+
+.area-pg-content h2 {
+  margin: 0;
+  margin-top: 20px; /* Espacio superior para separarlo del banner */
+}
+
+.area-pg-content p {
+  margin: 0;
+  color: gray;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.area-pg-card {
+  width: 18rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.estado {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.card-img-top {
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Ajusta la imagen para que cubra la totalidad del contenedor sin distorsionarse */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Cambiar la dirección del flex a columna */
+    align-items: center; /* Centrar las tarjetas */
+    gap: 20px; /* Añadir un margen entre las tarjetas en modo columna */
+  }
+}

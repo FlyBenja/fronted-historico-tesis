@@ -117,32 +117,6 @@ body {
   margin-left: 10px;
 }
 
-.card-container {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 20px;
-}
-
-.bienvenida-card {
-  width: 18rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.estado {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.card-img-top {
-  height: 200px; /* Ajusta la altura según sea necesario */
-  object-fit: cover; /* Ajusta la imagen para que cubra la totalidad del contenedor sin distorsionarse */
-}
-
 @media (max-width: 768px) {
   .navbar-nav {
     flex-direction: column;
@@ -154,11 +128,5 @@ body {
     position: static;
     transform: translate(0, 0); /* Asegurar que el modal se centre en dispositivos móviles */
     margin: 20px auto; /* Ajustar según sea necesario */
-  }
-  
-  .card-container {
-    flex-direction: column; /* Cambiar la dirección del flex a columna */
-    align-items: center; /* Centrar las tarjetas */
-    gap: 20px; /* Añadir un margen entre las tarjetas en modo columna */
   }
 }

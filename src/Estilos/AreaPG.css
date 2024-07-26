@@ -1,0 +1,33 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.area-pg-card {
+  width: 18rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.estado {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.card-img-top {
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Ajusta la imagen para que cubra la totalidad del contenedor sin distorsionarse */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Cambiar la dirección del flex a columna */
+    align-items: center; /* Centrar las tarjetas */
+    gap: 20px; /* Añadir un margen entre las tarjetas en modo columna */
+  }
+}

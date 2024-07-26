@@ -13,12 +13,18 @@ const AreaAlumnos = () => {
 
   const alumnos = Array(25).fill('Axel Herrera'); // Lista de alumnos para mostrar
 
+  const fechaActual = new Date().toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
     <div className="area-alumnos-container">
       <BannerRichard />
       <div className="area-alumnos-content">
         <h2>{RoleAlumPG === 1 ? 'Listado De Alumnos PG1' : 'Listado De Alumnos PG2'}</h2>
-        <p>August 21, 2023</p>
+        <p>{fechaActual}</p>
         <div className="card-container-alumnos">
           {alumnos.map((alumno, index) => (
             <Card key={index} className="alumno-card">
