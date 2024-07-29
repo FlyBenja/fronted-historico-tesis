@@ -10,23 +10,24 @@ import notiImage from '../Imagenes/noti-image.png';
 const AreaAlumnos = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { RoleAlumPG, role, year } = location.state || {};
+  const { RoleAlumPG, role, year: receivedYear } = location.state || {};
 
-  console.log("Received year:", year, "role:", role, "RoleAlumPG:", RoleAlumPG);
+  // Determina la fecha a mostrar: año recibido o año actual
+  const fechaActual = receivedYear || new Date().toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  console.log("Received year:", receivedYear, "role:", role, "RoleAlumPG:", RoleAlumPG);
 
   const alumnos = [
     'Axel Herrera', 'Maria Garcia', 'Juan Lopez', 'Ana Martinez', 'Pedro Gonzalez',
     'Luis Fernandez', 'Laura Sanchez', 'Carlos Ramirez', 'Sofia Diaz', 'Miguel Torres'
   ];
 
-  //const fechaActual = new Date().toLocaleDateString('es-ES', {
-   // year: 'numeric',
-   // month: 'long',
-   // day: 'numeric'
- // });
-
   const handleCardClick = (alumno) => {
-    navigate('/Tareas', { state: { role, RoleAlumPG, alumno, year } });
+    navigate('/Tareas', { state: { role, RoleAlumPG, alumno, year: fechaActual } });
   };
 
   return (
@@ -34,7 +35,7 @@ const AreaAlumnos = () => {
       <BannerRichard role={role} />
       <div className="area-alumnos-content">
         <h2>{RoleAlumPG === 1 ? 'Listado De Alumnos PG1' : 'Listado De Alumnos PG2'}</h2>
-        <p>{year}</p>
+        <p>{fechaActual}</p>
         <div className="card-container-alumnos">
           {alumnos.map((alumno, index) => (
             <Card key={index} className="alumno-card" onClick={() => handleCardClick(alumno)}>

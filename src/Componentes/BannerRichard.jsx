@@ -16,12 +16,12 @@ const BannerRichard = ({ role }) => {
 
   const handleNavigatePG1 = () => {
     console.log("Navigating to PG1 with role:", role, "and year:", year);
-    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1, role, year } });
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1, role } });
   };
 
   const handleNavigatePG2 = () => {
     console.log("Navigating to PG2 with role:", role, "and year:", year);
-    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2, role, year } });
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2, role } });
   };
 
   const handleNavigateHistorial = (year) => {

@@ -14,7 +14,7 @@ const Bienvenida = () => {
   const [error, setError] = useState('');
 
   const nombre = "Benjamin";
-  const role = 2;
+  const role = 1;
   const fechaActual = new Date().toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',

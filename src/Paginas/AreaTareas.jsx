@@ -1,36 +1,48 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Card, ProgressBar } from 'react-bootstrap';
 import BannerRichard from '../Componentes/BannerRichard';
 import BannerAlumnos from '../Componentes/BannerAlumnos';
-import { Card } from 'react-bootstrap';
 import '../Estilos/AreaTareas.css';
 
-import loginImage from '../Imagenes/login-image.png'; // Importar imagen de login
-import notiImage from '../Imagenes/noti-image.png'; // Importar imagen de notificación
+import loginImage from '../Imagenes/login-image.png';
+import notiImage from '../Imagenes/noti-image.png';
 
 const AreaTareas = () => {
   const location = useLocation();
-  const { RoleAlumPG, role, alumno, year } = location.state || {};
-  console.log(RoleAlumPG);
+  const navigate = useNavigate();
+  const { RoleAlumPG, role, alumno, year: receivedYear, percentage } = location.state || {};
 
-  const tareas = ['Tarea 1', 'Tarea 2', 'Tarea 3', 'Tarea 4', 'Tarea 5']; // Lista de tareas para mostrar
+  const fechaActual = receivedYear || new Date().toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 
-  //const fechaActual = new Date().toLocaleDateString('es-ES', {
-    //year: 'numeric',
-   // month: 'long',
-   // day: 'numeric'
- // });
+  console.log("RoleAlumPG:", RoleAlumPG);
+  console.log("Percentage:", percentage); // Asegúrate de que se recibe el porcentaje correctamente
+
+  const tareas = ['Tarea 1', 'Tarea 2', 'Tarea 3', 'Tarea 4', 'Tarea 5'];
+
+  const handleCardClick = (tarea) => {
+    navigate('/Tarea-Individual', { state: { RoleAlumPG, role, alumno, year: receivedYear, percentage, tarea } });
+  };
 
   return (
     <div className="area-tareas-container">
       {role === 1 ? <BannerRichard role={role} /> : <BannerAlumnos />}
       <div className="area-tareas-content">
+        {role !== 1 && (
+          <div className="progress-bar-container">
+            <ProgressBar now={percentage} label={`${percentage}%`} className="progress-bar-custom" />
+          </div>
+        )}
         <h2>Listado de Tareas de {alumno}</h2>
-        <p>{year}</p>
+        <p>{fechaActual}</p>
         <div className="card-container-tareas">
           {tareas.map((tarea, index) => (
-            <Card key={index} className="tarea-card">
-              <Card.Img variant="top" src={index % 2 === 0 ? loginImage : notiImage} /> {/* Alternar entre las imágenes */}
+            <Card key={index} className="tarea-card" onClick={() => handleCardClick(tarea)}>
+              <Card.Img variant="top" src={index % 2 === 0 ? loginImage : notiImage} />
               <Card.Body>
                 <Card.Title>{tarea}</Card.Title>
               </Card.Body>

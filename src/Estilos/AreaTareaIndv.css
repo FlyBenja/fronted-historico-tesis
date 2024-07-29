@@ -1,0 +1,63 @@
+/* Añadir fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Eliminar las barras de desplazamiento */
+}
+
+body {
+  background-color: #ffffff; /* Color de fondo blanco */
+  overflow-y: scroll; /* Habilitar barra de desplazamiento vertical */
+}
+
+.area-tarea-indv-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff; /* Asegurar el color de fondo blanco */
+}
+
+.area-tarea-indv-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.area-tarea-indv-content h2 {
+  margin: 20px 0 10px 0;
+}
+
+.area-tarea-indv-content p {
+  margin: 0 0 20px 0;
+  color: gray;
+}
+
+@media (max-width: 576px) {
+  .area-tarea-indv-container {
+    background-color: #ffffff; /* Asegurar el color de fondo blanco en modo teléfono */
+  }
+
+  .area-tarea-indv-content {
+    background-color: #ffffff; /* Cambia el fondo a blanco en modo teléfono */
+  }
+
+  .area-tarea-indv-content h2 {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente en modo teléfono */
+  }
+
+  .area-tarea-indv-content p {
+    font-size: 1rem; /* Ajusta el tamaño de la fuente en modo teléfono */
+  }
+}

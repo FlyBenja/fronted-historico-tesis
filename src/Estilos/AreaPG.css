@@ -18,6 +18,11 @@
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
+  
+.percentage {
+  margin: 5px 0;
+  font-weight: bold;
+}
 
 .card-img-top {
   height: 200px; /* Ajusta la altura según sea necesario */

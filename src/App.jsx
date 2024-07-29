@@ -6,6 +6,7 @@ import Bienvenida from './Paginas/Bienvenida';
 import AreaAlumnos from './Paginas/AreaAlumnos';
 import AreaHistorial from './Paginas/AreaHistorial'; 
 import AreaTareas from './Paginas/AreaTareas'; 
+import AreaTareaIndv from './Paginas/AreaTareaIndv'; 
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/AreaAlumnos" element={<AreaAlumnos />} />
         <Route path="/Historial" element={<AreaHistorial />} />
         <Route path="/Tareas" element={<AreaTareas />} />  
+        <Route path="/Tarea-Individual" element={<AreaTareaIndv />} />  
       </Routes>
     </Router>
   );

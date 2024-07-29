@@ -34,6 +34,22 @@ body {
   background-color: #fff;
 }
 
+.progress-bar-container {
+  width: 80%; /* Ajusta este valor según sea necesario */
+  margin: 20px auto; /* Centrar el contenedor y agregar espacio arriba y abajo */
+}
+
+.progress-bar-custom {
+  height: 25px; /* Ajustar la altura de la barra de progreso */
+  background-color: #d3d3d3;
+  color: black;
+}
+
+.progress-bar-custom .progress-bar {
+  background-color: #28a745; /* Color de la barra de progreso */
+  color: white; /* Color del texto en la barra de progreso */
+}
+
 .area-tareas-content h2 {
   margin: 20px 0 10px 0;
 }
