@@ -4,7 +4,8 @@ import Login from './Paginas/Login';
 import Register from './Paginas/Register';
 import Bienvenida from './Paginas/Bienvenida';
 import AreaAlumnos from './Paginas/AreaAlumnos';
-import AreaPGRic from './Paginas/AreaPGRic'; // Importar el nuevo componente
+import AreaHistorial from './Paginas/AreaHistorial'; 
+import AreaTareas from './Paginas/AreaTareas'; 
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/Bienvenida" element={<Bienvenida />} />
         <Route path="/AreaAlumnos" element={<AreaAlumnos />} />
-        <Route path="/AreaPGRic" element={<AreaPGRic />} /> {/* Nueva ruta añadida */}
+        <Route path="/Historial" element={<AreaHistorial />} />
+        <Route path="/Tareas" element={<AreaTareas />} />  
       </Routes>
     </Router>
   );

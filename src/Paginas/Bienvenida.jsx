@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Modal, Button } from 'react-bootstrap'; // Asegúrate de importar estos componentes
+import { Form, Modal, Button } from 'react-bootstrap';
 import '../Estilos/Bienvenida.css';
 import BannerRichard from '../Componentes/BannerRichard';
 import BannerAlumnos from '../Componentes/BannerAlumnos';
-import AreaPG from '../Componentes/AreaPG'; // Importar el nuevo componente AreaPG
+import AreaPG from '../Componentes/AreaPG';
 
 const Bienvenida = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -14,7 +14,7 @@ const Bienvenida = () => {
   const [error, setError] = useState('');
 
   const nombre = "Benjamin";
-  const role = 1;
+  const role = 2;
   const fechaActual = new Date().toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
@@ -63,9 +63,9 @@ const Bienvenida = () => {
 
   return (
     <div className="bienvenida-container">
-      {role === 1 ? <BannerRichard role={role} /> : <BannerAlumnos />}
+      {role === 1 ? <BannerRichard role={role} nombre={nombre} /> : <BannerAlumnos />}
       <div className="bienvenida-content">
-        <h2>Bienvenid@, {role === 1 ? 'Ingeniero Richard' : nombre}</h2>
+        <h2>Hola, {role === 1 ? 'Ingeniero Richard' : nombre}</h2>
         <p>{fechaActual}</p>
         {role === 1 && (
           <div className="recordatorios-container">
@@ -87,7 +87,7 @@ const Bienvenida = () => {
             </ul>
           </div>
         )}
-        {role !== 1 && <AreaPG role={role} />}
+        {role !== 1 && <AreaPG role={role} nombre={nombre} />}
       </div>
 
       <Modal show={showAddModal} onHide={handleAddClose} centered>

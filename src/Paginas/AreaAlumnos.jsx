@@ -1,34 +1,44 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'; // Importa el hook useLocation
+import { useLocation, useNavigate } from 'react-router-dom';
 import BannerRichard from '../Componentes/BannerRichard';
 import { Card } from 'react-bootstrap';
 import '../Estilos/AreaAlumnos.css';
 
-import loginImage from '../Imagenes/login-image.png'; // Importar imagen de login
-import notiImage from '../Imagenes/noti-image.png'; // Importar imagen de notificación
+import loginImage from '../Imagenes/login-image.png';
+import notiImage from '../Imagenes/noti-image.png';
 
 const AreaAlumnos = () => {
-  const location = useLocation(); // Inicializa el hook useLocation
-  const { RoleAlumPG } = location.state || {}; // Obtén el valor de RoleAlumPG del estado
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { RoleAlumPG, role, year } = location.state || {};
 
-  const alumnos = Array(25).fill('Axel Herrera'); // Lista de alumnos para mostrar
+  console.log("Received year:", year, "role:", role, "RoleAlumPG:", RoleAlumPG);
 
-  const fechaActual = new Date().toLocaleDateString('es-ES', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+  const alumnos = [
+    'Axel Herrera', 'Maria Garcia', 'Juan Lopez', 'Ana Martinez', 'Pedro Gonzalez',
+    'Luis Fernandez', 'Laura Sanchez', 'Carlos Ramirez', 'Sofia Diaz', 'Miguel Torres'
+  ];
+
+  //const fechaActual = new Date().toLocaleDateString('es-ES', {
+   // year: 'numeric',
+   // month: 'long',
+   // day: 'numeric'
+ // });
+
+  const handleCardClick = (alumno) => {
+    navigate('/Tareas', { state: { role, RoleAlumPG, alumno, year } });
+  };
 
   return (
     <div className="area-alumnos-container">
-      <BannerRichard />
+      <BannerRichard role={role} />
       <div className="area-alumnos-content">
         <h2>{RoleAlumPG === 1 ? 'Listado De Alumnos PG1' : 'Listado De Alumnos PG2'}</h2>
-        <p>{fechaActual}</p>
+        <p>{year}</p>
         <div className="card-container-alumnos">
           {alumnos.map((alumno, index) => (
-            <Card key={index} className="alumno-card">
-              <Card.Img variant="top" src={index % 2 === 0 ? loginImage : notiImage} /> {/* Alternar entre las imágenes */}
+            <Card key={index} className="alumno-card" onClick={() => handleCardClick(alumno)}>
+              <Card.Img variant="top" src={index % 2 === 0 ? loginImage : notiImage} />
               <Card.Body>
                 <Card.Title>{alumno}</Card.Title>
               </Card.Body>

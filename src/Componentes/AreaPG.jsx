@@ -1,11 +1,30 @@
 import React from 'react';
 import { Card, Button, ProgressBar } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import '../Estilos/AreaPG.css';
 
 import image1 from '../Imagenes/login-image.png';
 import image2 from '../Imagenes/noti-image.png';
 
-const AreaPG = ({ role }) => {
+const AreaPG = ({ role, year, nombre }) => {
+  const navigate = useNavigate();
+  console.log(nombre);
+  const handleNavigatePG1 = () => {
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1, role, year, nombre } });
+  };
+
+  const handleNavigatePG2 = () => {
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2, role, year, nombre } });
+  };
+
+  const handleTareasPG1 = (alumno) => {
+    navigate('/Tareas', { state: {RoleAlumPG: 1, role, alumno } });
+  };
+
+  const handleTareasPG2 = (alumno) => {
+    navigate('/Tareas', { state: {RoleAlumPG: 2, role, alumno } });
+  };
+
   const estadoPG1 = true; // Estado de ejemplo para PG1
   const estadoPG2 = false; // Estado de ejemplo para PG2
 
@@ -21,7 +40,13 @@ const AreaPG = ({ role }) => {
               <p className="estado">{estadoPG1 ? 'Activo' : 'Inactivo'}</p>
             </>
           )}
-          <Button variant="primary" className="mt-2">Go somewhere</Button>
+          <Button
+            variant="primary"
+            className="mt-2"
+            onClick={role === 1 ? handleNavigatePG1 : () => handleTareasPG1(nombre)}
+          >
+            Ingresar
+          </Button>
         </Card.Body>
       </Card>
       <Card className="area-pg-card">
@@ -34,7 +59,13 @@ const AreaPG = ({ role }) => {
               <p className="estado">{estadoPG2 ? 'Activo' : 'Inactivo'}</p>
             </>
           )}
-          <Button variant="primary" className="mt-2">Go somewhere</Button>
+          <Button
+            variant="primary"
+            className="mt-2"
+            onClick={role === 1 ? handleNavigatePG2 : () => handleTareasPG2(nombre)}
+          >
+            Ingresar
+          </Button>
         </Card.Body>
       </Card>
     </div>

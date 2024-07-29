@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../Estilos/BannerRichard.css';
-import notiImage from '../Imagenes/noti-image.png'; // Asegúrate de que la ruta de la imagen sea correcta
+import notiImage from '../Imagenes/noti-image.png';
 
 const BannerRichard = ({ role }) => {
   const [showNotiModal, setShowNotiModal] = useState(false);
-  const navigate = useNavigate(); // Inicializa el hook useNavigate
+  const navigate = useNavigate();
 
   const handleNotiClose = () => setShowNotiModal(false);
   const handleNotiShow = () => setShowNotiModal(!showNotiModal);
 
-  // Funciones para manejar la navegación
+  const fechaActual = new Date();
+  const year = fechaActual.getFullYear();
+
   const handleNavigatePG1 = () => {
-    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1 } });
+    console.log("Navigating to PG1 with role:", role, "and year:", year);
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 1, role, year } });
   };
 
   const handleNavigatePG2 = () => {
-    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2 } });
+    console.log("Navigating to PG2 with role:", role, "and year:", year);
+    navigate('/AreaAlumnos', { state: { RoleAlumPG: 2, role, year } });
   };
 
   const handleNavigateHistorial = (year) => {
-    navigate('/AreaPGRic', { state: { year, role } });
+    console.log("Navigating to Historial with year:", year, "and role:", role);
+    navigate('/Historial', { state: { year, role } });
   };
 
-  // Lista de años para el historial
-  const years = [2025, 2024, 2023]; // Puedes agregar más años aquí
+  const years = [2025, 2024, 2023];
 
   return (
     <>
